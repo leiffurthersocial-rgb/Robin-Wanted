@@ -3,170 +3,158 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>WANTED</title>
+  <title>FBI — Ten Most Wanted Fugitives</title>
 
   <style>
+    :root {
+      --fbi-blue: #005596;
+      --text-gray: #333333;
+      --border-gray: #dddddd;
+    }
+
     body {
       margin: 0;
-      padding: 0;
-      background: #d8c49a;
-      font-family: "Times New Roman", serif;
-      background-image:
-        radial-gradient(rgba(0,0,0,0.05) 1px, transparent 1px);
-      background-size: 4px 4px;
-      color: #2b1b0f;
+      padding: 20px;
+      background: #ffffff;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text-gray);
+      line-height: 1.5;
     }
 
-    .poster {
-      max-width: 850px;
-      margin: 40px auto;
-      background: #f4e3b2;
-      border: 12px solid #5a381e;
-      box-shadow:
-        0 0 0 6px #8b5a2b,
-        0 15px 40px rgba(0,0,0,0.45);
-      padding: 30px;
-      position: relative;
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
     }
 
-    .poster::before {
-      content: "";
-      position: absolute;
-      inset: 10px;
-      border: 2px dashed rgba(90,56,30,0.45);
-      pointer-events: none;
+    /* Top Profile Image */
+    .profile-box {
+      border: 1px solid var(--border-gray);
+      padding: 5px;
+      display: inline-block;
+      margin-bottom: 20px;
     }
 
-    .header-image {
-      width: 100%;
-      height: 460px;
+    .profile-image {
+      width: 120px;
+      height: 150px;
+      display: block;
       object-fit: cover;
-      border: 8px solid #3f2814;
-      filter: sepia(0.25) contrast(1.05);
-      box-shadow: 0 8px 18px rgba(0,0,0,0.4);
     }
 
-    .wanted {
-      text-align: center;
-      font-size: 5rem;
-      margin: 25px 0 10px;
-      color: #b10000;
-      letter-spacing: 8px;
-      text-transform: uppercase;
-      font-weight: bold;
-      text-shadow:
-        2px 2px 0 #400,
-        4px 4px 10px rgba(0,0,0,0.3);
+    /* Headings */
+    h2 {
+      color: var(--fbi-blue);
+      font-size: 28px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid var(--border-gray);
+      padding-bottom: 5px;
     }
 
-    .subtitle {
-      text-align: center;
-      font-size: 2rem;
+    h3 {
+      color: var(--fbi-blue);
+      font-size: 18px;
+      margin: 15px 0 5px 0;
+      text-decoration: none;
+    }
+
+    .news-link {
+        color: var(--fbi-blue);
+        font-weight: bold;
+        text-decoration: none;
+        font-size: 1.1rem;
+    }
+
+    .news-link:hover {
+        text-decoration: underline;
+    }
+
+    .date {
+      color: #666;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+
+    /* Audio Player Mockup */
+    .audio-player {
+      background: #f1f1f1;
+      border: 1px solid #ccc;
+      width: 300px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+      margin-bottom: 10px;
+    }
+
+    /* Table Styling */
+    .details-table {
+      width: 100%;
+      border-collapse: collapse;
       margin-top: 20px;
+    }
+
+    .details-table tr {
+      border-bottom: 1px solid #eee;
+    }
+
+    .details-table td {
+      padding: 10px 0;
+    }
+
+    .label {
       font-weight: bold;
+      width: 30%;
     }
 
-    .crime-box {
-      margin-top: 35px;
-      border-top: 3px solid #5a381e;
-      border-bottom: 3px solid #5a381e;
-      padding: 25px 15px;
-      text-align: center;
-      background: rgba(255,255,255,0.15);
-    }
-
-    .crime-title {
-      font-size: 2rem;
-      font-weight: bold;
-      letter-spacing: 2px;
-      margin-bottom: 15px;
-    }
-
-    .crime-text {
-      font-size: 2.2rem;
-      color: #2f1b10;
-      font-style: italic;
-    }
-
-    .stamp {
-      position: absolute;
-      top: 35px;
-      right: 35px;
-      transform: rotate(18deg);
-      border: 6px solid rgba(160,0,0,0.8);
-      color: rgba(160,0,0,0.8);
-      padding: 10px 18px;
-      font-size: 2rem;
-      font-weight: bold;
-      border-radius: 12px;
-      background: rgba(255,255,255,0.08);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-
-    .reward {
-      margin-top: 40px;
-      text-align: center;
-      font-size: 1.5rem;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-
-    .footer {
-      margin-top: 30px;
-      text-align: center;
-      font-size: 1rem;
-      opacity: 0.7;
-      letter-spacing: 1px;
-    }
-
-    @media (max-width: 700px) {
-      .wanted {
-        font-size: 3.2rem;
-        letter-spacing: 4px;
-      }
-
-      .crime-text {
-        font-size: 1.6rem;
-      }
-
-      .header-image {
-        height: 300px;
-      }
-
-      .stamp {
-        font-size: 1.2rem;
-      }
+    .aliases {
+        font-style: italic;
+        margin-bottom: 20px;
     }
   </style>
 </head>
 <body>
 
-  <div class="poster">
-
-    <div class="stamp">Wanted</div>
-
-    <!-- Replace robin.jpeg with your image file -->
-    <img src="robin.jpeg" alt="Wanted Poster Image" class="header-image">
-
-    <h1 class="wanted">WANTED!</h1>
-
-    <div class="subtitle">
-      DEAD OR ALIVE
+  <div class="container">
+    
+    <div class="profile-box">
+      <img src="robin.jpeg" alt="Fugitive Photo" class="profile-image">
     </div>
 
-    <div class="crime-box">
-      <div class="crime-title">CRIMES:</div>
-      <div class="crime-text">Assault, Sexual Assault, Rape</div>
-    </div>
+    <section>
+      <h2>Audio:</h2>
+      <a href="#" class="news-link">Inside the FBI Podcast: Featured Case Details</a>
+      <div class="audio-player">
+        <span style="font-size: 12px; color: #000;">▶ 00:00 / 00:00 🔊</span>
+      </div>
+      <p>In this episode, learn about the investigation and the specific charges brought against the individual.</p>
+    </section>
 
-    <div class="reward">
-      REWARD: 500'000 CHF
-    </div>
+    <section>
+      <h2>Featured News Item:</h2>
+      <div class="date">May 13, 2026</div>
+      <a href="#" class="news-link">Individual Added to FBI's Ten Most Wanted Fugitives List</a>
+      <p>FBI officials announced the addition of the suspect to the list following a comprehensive multi-agency investigation.</p>
+    </section>
 
-    <div class="footer">
-      OFFICIAL CRIMES DIVISION
-    </div>
+    <section>
+      <h2>Aliases:</h2>
+      <div class="aliases">"The Shadow", "Agent X", "Placeholder Name"</div>
+
+      <table class="details-table">
+        <tr>
+          <td class="label">Date(s) of Birth Used</td>
+          <td>June 19, 1982</td>
+        </tr>
+        <tr>
+          <td class="label">Place of Birth</td>
+          <td>Example City, Country</td>
+        </tr>
+        <tr>
+          <td class="label">Reward</td>
+          <td>Up to 500,000 CHF</td>
+        </tr>
+      </table>
+    </section>
 
   </div>
 
